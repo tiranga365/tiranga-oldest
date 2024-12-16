@@ -48,6 +48,7 @@
           src="assets/img/tiranga.jpeg"
           alt="tiranga image"
           srcset="assets/img/tiranga.jpeg"
+          onclick="gtag_report_conversion"
         />
       </a>
     </div>
@@ -60,5 +61,25 @@
         <a href="terms.html">Terms of Service</a>
       </p>
     </footer>
+
+    <!-- Event snippet for Page view conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-11499939031/g2zHCP6ZjfgZENfJzOsq',
+      'value': 1.0,
+      'currency': 'INR',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
   </body>
 </html>
